@@ -2,7 +2,6 @@
 <html lang="zxx" class="js">
 
 <head>
-    <base href="../">
     <meta charset="utf-8">
     <meta name="author" content="Softnio">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -57,12 +56,6 @@
                                         <span class="nk-menu-text">Users</span>
                                     </a>
                                 </li><!-- .nk-menu-item -->
-                                <li class="nk-menu-item">
-                                    <a href="html/gallery.html" class="nk-menu-link">
-                                        <span class="nk-menu-icon"><em class="icon ni ni-img"></em></span>
-                                        <span class="nk-menu-text">Image Gallery</span>
-                                    </a>
-                                </li><!-- .nk-menu-item -->
                                 <li class="nk-menu-heading">
                                     <h6 class="overline-title text-primary-alt">Others</h6>
                                 </li><!-- .nk-menu-heading -->
@@ -70,12 +63,6 @@
                                     <a href="{{ route('admin.settings') }}" class="nk-menu-link">
                                         <span class="nk-menu-icon"><em class="icon ni ni-setting"></em></span>
                                         <span class="nk-menu-text">Settings</span>
-                                    </a>
-                                </li>
-                                <li class="nk-menu-item">
-                                    <a href="{{ route('admin.security') }}" class="nk-menu-link">
-                                        <span class="nk-menu-icon"><em class="icon ni ni-shield"></em></span>
-                                        <span class="nk-menu-text">Security</span>
                                     </a>
                                 </li>
                                 <li class="nk-menu-item has-sub">

@@ -3,15 +3,18 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
     public function dashboard()
     {
-        return view('admin.index');
+        $users = User::latest()->paginate(5);
+        return view('admin.index', compact('users'));
     }
 
     public function settings()
@@ -37,6 +40,31 @@ class AdminController extends Controller
         $user = Auth::user();
         $data = DB::table('sessions')->whereUserId(\auth()->id())->get();
         return view('admin.setting.activities', compact('data', 'user'));
+    }
+
+    public function security()
+    {
+        $user = Auth::user();
+        return view('admin.setting.security', compact('user'));
+    }
+
+    public function updatePassword(Request $request)
+    {
+        $request->validate([
+            'current_password' => 'required',
+            'new_password' => 'required|min:8|confirmed',
+        ]);
+
+        $user = Auth::user();
+
+        if (!Hash::check($request->current_password, $user->password)) {
+            return back()->withErrors(['current_password' => 'Current password is incorrect.']);
+        }
+
+        $user->password = Hash::make($request->new_password);
+        $user->save();
+
+        return redirect()->back()->with('success', 'Password updated successfully!');
     }
 
 }

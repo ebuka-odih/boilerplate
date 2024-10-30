@@ -59,9 +59,8 @@
                                         <div class="card-inner p-0">
                                             <ul class="link-list-menu">
                                                 <li><a class="" href="{{ route('admin.settings') }}"><em class="icon ni ni-user-fill-c"></em><span>Personal Infomation</span></a></li>
-                                                <li><a class="active" href="html/user-profile-activity.html"><em class="icon ni ni-activity-round-fill"></em><span>Account Activity</span></a></li>
-                                                <li><a href="html/user-profile-setting.html"><em class="icon ni ni-lock-alt-fill"></em><span>Security Settings</span></a></li>
-                                                <li><a href="html/user-profile-social.html"><em class="icon ni ni-grid-add-fill-c"></em><span>Connected with Social</span></a></li>
+                                                <li><a class="active" href="{{ route('admin.activities') }}"><em class="icon ni ni-activity-round-fill"></em><span>Account Activity</span></a></li>
+                                                <li><a href="{{ route('admin.security') }}"><em class="icon ni ni-lock-alt-fill"></em><span>Security Settings</span></a></li>
                                             </ul>
                                         </div><!-- .card-inner -->
                                     </div></div></div></div><div class="simplebar-placeholder" style="width: auto; height: 504px;"></div></div><div class="simplebar-track simplebar-horizontal" style="visibility: hidden;"><div class="simplebar-scrollbar" style="width: 0px; display: none;"></div></div><div class="simplebar-track simplebar-vertical" style="visibility: hidden;"><div class="simplebar-scrollbar" style="height: 0px; display: none;"></div></div></div><!-- .card-inner-group -->
