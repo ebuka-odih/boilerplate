@@ -1,11 +1,15 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 
-Route::group(['middleware' => ['auth', 'verified', ], 'prefix' => 'admin', 'as' => 'admin.'], function(){
+Route::group(['middleware' => ['auth', 'verified', 'admin'], 'prefix' => 'admin', 'as' => 'admin.'], function(){
      Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
+     Route::get('/settings', [AdminController::class, 'settings'])->name('settings');
+     Route::get('/security', [AdminController::class, 'security'])->name('security');
 
+     Route::get('users', [UserController::class, 'index'])->name('users.index');
 });
